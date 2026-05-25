@@ -44,4 +44,5 @@ https://www.mimuw.edu.pl/~noble/courses/TimeSeries/RESOURCES/ShumwayStofferTimeS
 https://web.mit.edu/kirtley/kirtley/binlustuff/literature/control/Kalman%20filter.pdf
 
 Autorstwo
-Wszystkie algorytmy, modele analityczne oraz logika testów zawarte w tym projekcie zostały napisane i zaimplementowane przeze mnie w pełni samodzielnie. Jedynym wyjątkiem są standardowe fragmenty kodu odpowiedzialne za wczytywanie danych z plików zewnętrznych, które zostały wygenerowane przez AI.
+
+Wszystko co znajduje się w tym projekcie zostało napisane, przeze mnie samodzielnie. Jedynym wyjątkiem są fragmenty kodu odpowiedzialne za wczytywanie danych z plików zewnętrznych, które zostały wygenerowane przez AI.
