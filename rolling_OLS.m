@@ -54,7 +54,24 @@ disp(['Gotowe! Pełna liczba próbek w systemie: ', num2str(height(quarterly_dat
 function tt_out = prepare_binance_data(raw_table, label)
     timestamps = raw_table.(1); 
     close_prices = raw_table.(5);
-    dates = datetime(timestamps/1000000, 'ConvertFrom', 'posixtime');
+    
+    % Sprawdzenie rzędu wielkości, aby dynamicznie dobrać dzielnik
+    mediana_czasu = median(timestamps, 'omitnan');
+    
+    if mediana_czasu > 1e15
+        % Wartość powyżej 1 biliona -> to są mikrosekundy
+        dzielnik = 1000000;
+    elseif mediana_czasu > 1e11
+        % Wartość w okolicach biliona (13 cyfr) -> to są milisekundy (standard Binance)
+        dzielnik = 1000;
+    else
+        % Wartość 10-cyfrowa -> to są zwykłe sekundy
+        dzielnik = 1;
+    end
+    
+    % Konwersja z odpowiednim dzielnikiem
+    dates = datetime(timestamps/dzielnik, 'ConvertFrom', 'posixtime');
+    
     col_name = strcat('Close_', label);
     tt_out = timetable(dates, close_prices, 'VariableNames', {col_name});
 end
