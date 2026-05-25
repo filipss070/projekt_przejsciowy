@@ -34,13 +34,15 @@ Uwzględnienie slippage w backtestach, aby uczynić je jeszcze bardziej realisty
 Dokładniejsze zbadanie i optymalizacja innowacji samego filtru Kalmana.
 
 Źródła
-Projekt powstał w oparciu o następujące materiały:
+Część źródeł z których korzystałem:
 
-[Miejsce na tytuł książki, artykułu naukowego lub link 1]
+https://portfoliooptimizationbook.com/book/
 
-[Miejsce na tytuł książki, artykułu naukowego lub link 2]
+https://dsstoffer.github.io/files/em.pdf
 
-[Miejsce na tytuł książki, artykułu naukowego lub link 3]
+https://www.mimuw.edu.pl/~noble/courses/TimeSeries/RESOURCES/ShumwayStofferTimeSeries.pdf
+
+https://web.mit.edu/kirtley/kirtley/binlustuff/literature/control/Kalman%20filter.pdf
 
 Autorstwo
 Wszystkie algorytmy, modele analityczne oraz logika testów zawarte w tym projekcie zostały napisane i zaimplementowane przeze mnie w pełni samodzielnie. Jedynym wyjątkiem są standardowe fragmenty kodu odpowiedzialne za wczytywanie danych z plików zewnętrznych, które zostały wygenerowane przez AI.
