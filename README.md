@@ -1,3 +1,4 @@
+[PL]
 Backtest strategii Pairs Trading (Filtr Kalmana vs Rolling OLS)
 Projekt zawiera zbiór skryptów w środowisku MATLAB służących do testowania i optymalizacji strategii na parze ETH i BTC. Rdzeniem systemu jest adaptacyjny filtr Kalmana optymalizowany algorytmem EM, którego wyniki są zestawiane z klasyczną regresją kroczącą.
 
@@ -46,3 +47,51 @@ https://web.mit.edu/kirtley/kirtley/binlustuff/literature/control/Kalman%20filte
 Autorstwo
 
 Wszystko co znajduje się w tym projekcie zostało napisane, przeze mnie samodzielnie. Jedynym wyjątkiem są fragmenty kodu odpowiedzialne za wczytywanie danych z plików zewnętrznych, które zostały wygenerowane przez AI.
+
+[ENG]
+​Pairs Trading Strategy Backtest (Kalman Filter vs. Rolling OLS)
+
+​The project contains a set of MATLAB scripts designed to test and optimize a trading strategy on the ETH/BTC pair. The core of the system is an adaptive Kalman filter optimized using the Expectation-Maximization (EM) algorithm, whose results are benchmarked against classic rolling linear regression.
+​Project Files
+
+​walk_forward.m – The main script conducting Walk-Forward testing on 5-minute candles. It relies on a Kalman filter combined with a linear regression model. The filter matrices are optimized using the EM algorithm and Kalman Smoother over a 7-day lookback window, updated every 2 days. The input signal requires confirmed cointegration from the past 7 days and a specific entry threshold (calibrated every 0.3 years using data from the preceding 0.7 years). The script compares this method with a 7-day Rolling OLS model.
+
+​bot_adaptacyjny_v1.m – A script calculating all necessary vectors to run the Kalman filter backtest.
+​rolling_OLS.m – A script calculating all necessary vectors to run the Rolling OLS backtest.
+
+​liczenieQIR_zwykly.m – An earlier version of the project. It includes a set of statistical tests for normalized Kalman filter innovations (Ljung-Box test, QQ-plot, ACF function). This is used to verify if the innovations behave as white noise and to evaluate the shape of the normalized spread distribution.
+
+​rollingOLS_vs_kalman.m – An older script directly comparing the results of the OLS model and the Kalman filter.
+​Data Archives
+
+​rolling_OLS_3year.zip – Compressed files containing pre-calculated parameters for the OLS model.
+
+​adaptacyjny_freq_2day_3year.zip – Compressed files containing recalculated parameters for the adaptive filter (updated every 2 days) spanning a 3-year period.
+
+​Results Status
+
+​Currently, the system demonstrates a clear advantage of the Kalman filter over simple linear regression; however, it encounters limitations related to transaction costs.
+
+​In a theoretical environment (zero commissions), the strategy generates consistent profits.
+
+​After accounting for actual market commissions, the Kalman filter-based system breaks roughly even, whereas the Rolling OLS model loses capital.
+
+​Areas for Improvement and Development
+
+​Implementing and testing alternative models to linear regression within the Kalman filter architecture, such as ARMA or the Ornstein-Uhlenbeck process.
+
+​Identifying and selecting asset pairs with a higher degree of cointegration.
+
+​Incorporating slippage into the backtests to make the simulations more realistic.
+
+​Conducting a deeper investigation and optimization of the Kalman filter innovations.
+
+​Selected References
+​https://portfoliooptimizationbook.com/book/
+​https://dsstoffer.github.io/files/em.pdf
+​https://www.mimuw.edu.pl/~noble/courses/TimeSeries/RESOURCES/ShumwayStofferTimeSeries.pdf
+​https://web.mit.edu/kirtley/kirtley/binlustuff/literature/control/Kalman%20filter.pdf
+
+​Authorship
+​Everything in this project was written independently by me. The only exception is the code snippets responsible for loading data from external files, which were generated using AI.
+
